@@ -21,15 +21,12 @@
       </button>
     </div>
 
-    <h4 :id="`${card.id}Number`" class="card__number text-regular">
+    <h4 aria-label="card number" :aria-hidden="!show" :id="`${card.id}Number`" class="card__number text-regular">
       <template v-if="show">
-        <span :aria-hidden="!show" v-for="(sequence, index) in cardSequence.match(/[\d|\.]{4,4}/g)" :key="index">{{
-          sequence
-        }}</span>
+        <span v-for="(sequence, index) in cardSequence.match(/[\d|\.]{4,4}/g)" :key="index">{{ sequence }}</span>
       </template>
       <template v-else>
         <svg
-          :aria-hidden="show"
           width="52"
           height="9"
           viewBox="0 0 52 9"
@@ -63,10 +60,16 @@
 
       <div class="card__pair cvv">
         <p class="card__label text-regular">CVV</p>
-        <p :id="`${card.id}Cvv`" v-if="show" :aria-hidden="!show" class="card__value text-regular">
+        <p
+          aria-label="card cvv"
+          :id="`${card.id}Cvv`"
+          v-if="show"
+          :aria-hidden="!show"
+          class="card__value text-regular"
+        >
           {{ card.cvv }}
         </p>
-        <p :id="`${card.id}Cvv`" v-else :aria-hidden="show" class="card__value text-regular">
+        <p aria-label="card cvv" :id="`${card.id}Cvv`" v-else :aria-hidden="!show" class="card__value text-regular">
           <svg width="18" height="5" viewBox="0 0 18 5" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M2.70846 4.32409C3.91446 4.32409 4.79646 3.38809 4.79646 2.23609C4.79646 1.08409 3.91446 0.148094 2.70846 0.148094C1.52046 0.148094 0.620459 1.08409 0.620459 2.23609C0.620459 3.38809 1.52046 4.32409 2.70846 4.32409ZM9.22502 4.32409C10.431 4.32409 11.313 3.38809 11.313 2.23609C11.313 1.08409 10.431 0.148094 9.22502 0.148094C8.03702 0.148094 7.13702 1.08409 7.13702 2.23609C7.13702 3.38809 8.03702 4.32409 9.22502 4.32409ZM15.7416 4.32409C16.9476 4.32409 17.8296 3.38809 17.8296 2.23609C17.8296 1.08409 16.9476 0.148094 15.7416 0.148094C14.5536 0.148094 13.6536 1.08409 13.6536 2.23609C13.6536 3.38809 14.5536 4.32409 15.7416 4.32409Z"

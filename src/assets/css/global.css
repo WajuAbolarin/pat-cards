@@ -1,0 +1,43 @@
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Rubik', sans-serif;
+}
+
+html *,
+html *::before,
+html *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.text-regular {
+  font-weight: 300;
+}
+
+:root {
+  --black: #131313;
+  --smoke-dark: #9da8b6;
+  --smoke-200: #d3dce6;
+  --grey: #575a65;
+  --font-xs: 7px;
+  --font-sm: 10px;
+  --font-md: 12px;
+  --font-lg: 18px;
+  --card-radius: 8px;
+  --card-width: 320px;
+  --card-height: 208px;
+  --card-spacing: 20px 20px;
+}
+@media (min-width: 769px) {
+  :root {
+    --font-xs: 7px;
+    --font-sm: 14px;
+    --font-md: 16px;
+    --font-lg: 23px;
+    --card-radius: 20px;
+    --card-width: 499.02px;
+    --card-height: 325px;
+    --card-spacing: 42px 32px;
+  }
+}

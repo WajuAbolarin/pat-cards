@@ -9,7 +9,7 @@ const cards = [
     id: 'dfs7fLsy',
   },
 ]
-context('Querying', () => {
+context('Card Visibility toggling', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000')
   })

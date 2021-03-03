@@ -4,7 +4,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "test": "yarn cypress run",
+    "e2e": "yarn cypress open"
   },
   "dependencies": {
     "vue": "^3.0.5"

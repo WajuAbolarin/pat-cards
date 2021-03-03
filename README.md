@@ -1,7 +1,7 @@
 
 # PATRICIA Cards
 This is a take-home assignment submission for an application as Senior Frontend Engineer at Patricia
-the app can be found live at `url`
+the app can be found live [here](https://pat-cards.netlify.app)
 
 - Particular attention has been paid to `responsiveness` (on mobile, ipad and laptop)
 - `Accessiblity` (100% Lighthouse score) and
@@ -14,7 +14,7 @@ This site is bootstrapped with [ vite ](https://vitejs.dev/guide/#scaffolding-yo
 
 1. Clone this repo
  ```bash 
-git clone  <repo_url> 
+git clone  https://github.com/WajuAbolarin/pat-cards.git
  ```
 2. Build the Vue app
  ```bash

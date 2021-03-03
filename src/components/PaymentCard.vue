@@ -1,11 +1,11 @@
 <template>
   <article class="card__wrapper">
     <div class="card__top">
-      <img alt="Patricia logo" src="patricia-logo.svg" />
-      <button @click="toggle" aria-role="toggle">
+      <img alt="Patricia logo" title="Patricia" src="patricia-logo.svg" />
+      <button @click="toggle" :aria-controls="`${card.id}Number ${card.id}Cvv`" aria-label="toggle card number">
         <svg viewBox="0 0 26 24" xmlns="http://www.w3.org/2000/svg" width="26" height="24" fill="currentColor">
           <path
-            v-if="show"
+            v-if="!show"
             fill-rule="evenodd"
             d="M22.509 19.732l1.663 1.663a1.278 1.278 0 11-1.809 1.81L18.9 19.74l-.75-.75-1.72-1.721-.089-.089-3.201-3.201a1.922 1.922 0 01-2.023-2.023l-4.12-4.12-2.24-2.24L1.89 2.732c-.5-.5-.5-1.31 0-1.81S3.2.422 3.7.922l2.192 2.192L7.766 4.99l5.158 5.158.107-.003a1.922 1.922 0 011.917 2.026l5.01 5.011 2.551 2.55zM8.672 4.084l3.579 3.58c.254-.046.513-.079.78-.079a4.483 4.483 0 014.479 4.479c0 .267-.034.525-.079.78l3.432 3.433 1.067 1.067a19.99 19.99 0 003.728-4.645c.225-.394.225-.879 0-1.273-.817-1.422-5.326-8.555-12.972-8.315-1.515.04-2.887.366-4.13.858l.116.115zm6.852 14.092l1.721 1.72.262.262a11.94 11.94 0 01-4.444.862c-7.501 0-11.852-6.916-12.658-8.32a1.284 1.284 0 010-1.274 20.017 20.017 0 013.727-4.643l1.96 1.96 2.54 2.54c-.046.255-.079.513-.079.78a4.483 4.483 0 004.478 4.479c.268 0 .526-.034.781-.08l1.624 1.624.088.09z"
             clip-rule="evenodd"
@@ -21,27 +21,31 @@
       </button>
     </div>
 
-    <h4 class="card__number text-regular" v-if="show">
-      <span v-for="(sequence, index) in cardSequence.match(/[\d|\.]{4,4}/g)" :key="index">{{ sequence }}</span>
-    </h4>
+    <h4 :id="`${card.id}Number`" class="card__number text-regular">
+      <template v-if="show">
+        <span :aria-hidden="!show" v-for="(sequence, index) in cardSequence.match(/[\d|\.]{4,4}/g)" :key="index">{{
+          sequence
+        }}</span>
+      </template>
+      <template v-else>
+        <svg
+          :aria-hidden="show"
+          width="52"
+          height="9"
+          viewBox="0 0 52 9"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          v-for="i in 3"
+          :key="i"
+        >
+          <path
+            d="M3.89464 8.22707C6.03864 8.22707 7.60664 6.56307 7.60664 4.51507C7.60664 2.46707 6.03864 0.803067 3.89464 0.803067C1.78264 0.803067 0.182642 2.46707 0.182642 4.51507C0.182642 6.56307 1.78264 8.22707 3.89464 8.22707ZM18.6796 8.22707C20.8236 8.22707 22.3916 6.56307 22.3916 4.51507C22.3916 2.46707 20.8236 0.803067 18.6796 0.803067C16.5676 0.803067 14.9676 2.46707 14.9676 4.51507C14.9676 6.56307 16.5676 8.22707 18.6796 8.22707ZM33.4646 8.22707C35.6086 8.22707 37.1766 6.56307 37.1766 4.51507C37.1766 2.46707 35.6086 0.803067 33.4646 0.803067C31.3526 0.803067 29.7526 2.46707 29.7526 4.51507C29.7526 6.56307 31.3526 8.22707 33.4646 8.22707ZM48.2496 8.22707C50.3936 8.22707 51.9616 6.56307 51.9616 4.51507C51.9616 2.46707 50.3936 0.803067 48.2496 0.803067C46.1376 0.803067 44.5376 2.46707 44.5376 4.51507C44.5376 6.56307 46.1376 8.22707 48.2496 8.22707Z"
+            fill="#D3DCE6"
+          />
+        </svg>
 
-    <h4 class="card__number text-regular" v-else>
-      <svg
-        width="52"
-        height="9"
-        viewBox="0 0 52 9"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        v-for="i in 3"
-        :key="i"
-      >
-        <path
-          d="M3.89464 8.22707C6.03864 8.22707 7.60664 6.56307 7.60664 4.51507C7.60664 2.46707 6.03864 0.803067 3.89464 0.803067C1.78264 0.803067 0.182642 2.46707 0.182642 4.51507C0.182642 6.56307 1.78264 8.22707 3.89464 8.22707ZM18.6796 8.22707C20.8236 8.22707 22.3916 6.56307 22.3916 4.51507C22.3916 2.46707 20.8236 0.803067 18.6796 0.803067C16.5676 0.803067 14.9676 2.46707 14.9676 4.51507C14.9676 6.56307 16.5676 8.22707 18.6796 8.22707ZM33.4646 8.22707C35.6086 8.22707 37.1766 6.56307 37.1766 4.51507C37.1766 2.46707 35.6086 0.803067 33.4646 0.803067C31.3526 0.803067 29.7526 2.46707 29.7526 4.51507C29.7526 6.56307 31.3526 8.22707 33.4646 8.22707ZM48.2496 8.22707C50.3936 8.22707 51.9616 6.56307 51.9616 4.51507C51.9616 2.46707 50.3936 0.803067 48.2496 0.803067C46.1376 0.803067 44.5376 2.46707 44.5376 4.51507C44.5376 6.56307 46.1376 8.22707 48.2496 8.22707Z"
-          fill="#D3DCE6"
-        />
-      </svg>
-
-      <span>{{ card.cardNo.slice(card.cardNo.length - 4) }}</span>
+        <span>{{ card.cardNo.slice(card.cardNo.length - 4) }}</span>
+      </template>
     </h4>
 
     <div class="card__bottom">
@@ -57,10 +61,18 @@
         </p>
       </div>
 
-      <div class="card__pair">
+      <div class="card__pair cvv">
         <p class="card__label text-regular">CVV</p>
-        <p class="card__value text-regular">
+        <p :id="`${card.id}Cvv`" v-if="show" :aria-hidden="!show" class="card__value text-regular">
           {{ card.cvv }}
+        </p>
+        <p :id="`${card.id}Cvv`" v-else :aria-hidden="show" class="card__value text-regular">
+          <svg width="18" height="5" viewBox="0 0 18 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M2.70846 4.32409C3.91446 4.32409 4.79646 3.38809 4.79646 2.23609C4.79646 1.08409 3.91446 0.148094 2.70846 0.148094C1.52046 0.148094 0.620459 1.08409 0.620459 2.23609C0.620459 3.38809 1.52046 4.32409 2.70846 4.32409ZM9.22502 4.32409C10.431 4.32409 11.313 3.38809 11.313 2.23609C11.313 1.08409 10.431 0.148094 9.22502 0.148094C8.03702 0.148094 7.13702 1.08409 7.13702 2.23609C7.13702 3.38809 8.03702 4.32409 9.22502 4.32409ZM15.7416 4.32409C16.9476 4.32409 17.8296 3.38809 17.8296 2.23609C17.8296 1.08409 16.9476 0.148094 15.7416 0.148094C14.5536 0.148094 13.6536 1.08409 13.6536 2.23609C13.6536 3.38809 14.5536 4.32409 15.7416 4.32409Z"
+              fill="#D3DCE6"
+            />
+          </svg>
         </p>
       </div>
     </div>
@@ -134,20 +146,24 @@ button:active {
 }
 .card__holder {
   font-size: var(--font-sm);
-  width: 50%;
+  width: 90%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: clip;
 }
 .card__bottom {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 20% 20%;
   align-items: flex-end;
   width: 100%;
 }
 .card__pair {
   display: flex;
   align-items: flex-end;
+  text-align: right;
+}
+.card__pair.cvv {
+  justify-content: flex-end;
 }
 .card__label {
   font-size: var(--font-xs);
@@ -167,6 +183,7 @@ button:active {
   }
   .card__bottom {
     width: 93%;
+    grid-template-columns: 1fr 20% 20%;
   }
 }
 </style>

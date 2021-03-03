@@ -7,8 +7,14 @@
 <script setup>
 import PaymentCard from './components/PaymentCard.vue'
 const cards = [
-  { cardNo: '9756727274784834', cvv: '222', cardHolder: 'Abolarin Olanrewaju', expires: '10/22' },
-  { cardNo: '9759300033334883', cvv: '333', cardHolder: 'Adekunle Chukwuma Ciroma-Benson-Alakija', expires: '11/23' },
+  { cardNo: '9756727274784834', cvv: '222', cardHolder: 'Abolarin Olanrewaju', expires: '10/22', id: 'xs39Ydh' },
+  {
+    cardNo: '9759300033334883',
+    cvv: '333',
+    cardHolder: 'Adekunle Chukwuma Ciroma-Bala-Hassan',
+    expires: '11/23',
+    id: 'dfs7fLsy',
+  },
 ]
 </script>
 

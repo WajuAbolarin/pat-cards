@@ -1,7 +1,16 @@
+@font-face {
+  font-family: 'Graphik';
+  src: local('.'), url('./1686c58cf5a9ede08595d400b67049b7.woff2') format('woff2'),
+    url('./1686c58cf5a9ede08595d400b67049b7.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: 'Rubik', sans-serif;
+  font-family: 'Graphik', sans-serif;
 }
 
 html *,

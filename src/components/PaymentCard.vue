@@ -1,7 +1,7 @@
 <template>
   <article class="card__wrapper">
     <div class="card__top">
-      <img alt="Patricia logo" title="Patricia" src="patricia-logo.svg" />
+      <img alt="Patricia logo" title="Patricia" src="../assets/patricia-logo.svg" />
       <button @click="toggle" :aria-controls="`${card.id}Number ${card.id}Cvv`" aria-label="toggle card number">
         <svg viewBox="0 0 26 24" xmlns="http://www.w3.org/2000/svg" width="26" height="24" fill="currentColor">
           <path
@@ -106,7 +106,7 @@ export default {
 
 <style scoped>
 .card__wrapper {
-  background: url('patricia-icon.svg') left top no-repeat;
+  background: url('../assets/patricia-icon.svg') left top no-repeat;
   background-size: 80%;
   background-color: var(--black);
   color: var(--smoke-200);

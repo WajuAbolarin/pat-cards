@@ -1,11 +1,10 @@
 
-# PATRICIA Cards
-This is a take-home assignment submission for an application as Senior Frontend Engineer at Patricia
-the app can be found live [here](https://pat-cards.netlify.app)
+# Cards
+The app can be found [here](https://pat-cards.netlify.app)
 
 - Particular attention has been paid to `responsiveness` (on mobile, ipad and laptop)
 - `Accessiblity` (100% Lighthouse score) and
--  `Pixel-perfect` design implementation
+- `Pixel-perfect` design implementation
 
 ## Running locally 
 This site is bootstrapped with [ vite ](https://vitejs.dev/guide/#scaffolding-your-first-vite-project) and it's dependencies apply

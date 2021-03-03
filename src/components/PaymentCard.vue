@@ -181,9 +181,6 @@ button:active {
 }
 
 @media (min-width: 720px) {
-  .card__holder {
-    width: 55%;
-  }
   .card__bottom {
     width: 93%;
     grid-template-columns: 1fr 20% 20%;

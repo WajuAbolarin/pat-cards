@@ -11,7 +11,7 @@ const cards = [
   {
     cardNo: '9759300033334883',
     cvv: '333',
-    cardHolder: 'Adekunle Chukwuma Ciroma-Bala-Hassan',
+    cardHolder: 'Adekunle Chukwuma Ciroma',
     expires: '11/23',
     id: 'dfs7fLsy',
   },
